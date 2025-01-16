@@ -43,7 +43,7 @@ func GetCustomerByID(w http.ResponseWriter, r *http.Request) {
 	// Simulate a long-running operation in a goroutine
 	go func() {
 		// Simulated delay (2 minutes)
-		time.Sleep(10 * time.Minute)
+		time.Sleep(10 * time.Minute) //it should be less than 10*time.second then id generates
 
 		var customer Customer
 		result := db.First(&customer, "id = ?", input.ID)
